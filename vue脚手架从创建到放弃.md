@@ -22,3 +22,9 @@
 
 3. build目录结构(环境变量)
 <img src="proImgs/config.png">
+
+4. 
+* index.html:只有一个空的根节点，src/main.js 下实例将挂载到#app节点下，内容被vue组件替换。
+* src/App.vue:项目主组件。
+* src/main.js:入口文件，初始化vue实例并使用需要的插件。
+* router/index.js:定义路由。
