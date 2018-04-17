@@ -1,17 +1,18 @@
 'use strict'
 const path = require('path')
-const config = require('../config')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const config = require('../config') //引入config目录下的index.js配置文件
+const ExtractTextPlugin = require('extract-text-webpack-plugin') //一个插件，抽离css样式，防止将样式打包在js中引起样式加载错乱
 const packageConfig = require('../package.json')
-
+//导出assetsPath
 exports.assetsPath = function (_path) {
+  //如果是生产环境，则assetsSubDirectory的值为index.js文件中的assetsSubDirectory的值，否则...
   const assetsSubDirectory = process.env.NODE_ENV === 'production'
     ? config.build.assetsSubDirectory
     : config.dev.assetsSubDirectory
 
-  return path.posix.join(assetsSubDirectory, _path)
+  return path.posix.join(assetsSubDirectory, _path) //path.join返回绝对路径（在电脑上的实际位置）；path.posix.join返回相对路径
 }
-
+//cssloaders相关配置
 exports.cssLoaders = function (options) {
   options = options || {}
 
@@ -56,7 +57,7 @@ exports.cssLoaders = function (options) {
 
   // https://vue-loader.vuejs.org/en/configurations/extract-css.html
   return {
-    css: generateLoaders(),
+    css: generateLoaders(),  //css对应vue-style-loader和css-loader
     postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),
@@ -70,9 +71,9 @@ exports.cssLoaders = function (options) {
 exports.styleLoaders = function (options) {
   const output = []
   const loaders = exports.cssLoaders(options)
-
+  //生成的各种css文件的loader对象
   for (const extension in loaders) {
-    const loader = loaders[extension]
+    const loader = loaders[extension]  //提取每一种文件的loader
     output.push({
       test: new RegExp('\\.' + extension + '$'),
       use: loader
@@ -83,7 +84,7 @@ exports.styleLoaders = function (options) {
 }
 
 exports.createNotifierCallback = () => {
-  const notifier = require('node-notifier')
+  const notifier = require('node-notifier')  //导入模块，用于node.js模块发送跨平台系统通知
 
   return (severity, errors) => {
     if (severity !== 'error') return
@@ -92,7 +93,7 @@ exports.createNotifierCallback = () => {
     const filename = error.file && error.file.split('!').pop()
 
     notifier.notify({
-      title: packageConfig.name,
+      title: packageConfig.name,  //发生错误时的通知标题
       message: severity + ': ' + error.name,
       subtitle: filename || '',
       icon: path.join(__dirname, 'logo.png')
