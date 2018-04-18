@@ -5,12 +5,12 @@
 const path = require('path')
 
 module.exports = {
-  dev: {
+  dev: { //开发环境配置
 
     // Paths
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    proxyTable: {},
+    assetsSubDirectory: 'static',  //webpack编译输出的二级文件夹
+    assetsPublicPath: '/',  //webpack编译输出的发布路径
+    proxyTable: {}, //请求代理
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
@@ -38,18 +38,18 @@ module.exports = {
 
   build: {
     // Template for index.html
-    index: path.resolve(__dirname, '../dist/index.html'),
+    index: path.resolve(__dirname, '../dist/index.html'),  //本地文件系统上的绝对路径
 
     // Paths
-    assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsRoot: path.resolve(__dirname, '../dist'),  // 编译输出的静态资源路径
+    assetsSubDirectory: 'static',  //被webpack编译处理过的资源文件会在此目录下
+    assetsPublicPath: '/', //资源根目录
 
     /**
      * Source Maps
      */
 
-    productionSourceMap: true,
+    productionSourceMap: true, //构建生产环境版本是是否开启sourcemap
     // https://webpack.js.org/configuration/devtool/#production
     devtool: '#source-map',
 
@@ -57,13 +57,13 @@ module.exports = {
     // Surge or Netlify already gzip all static assets for you.
     // Before setting to `true`, make sure to:
     // npm install --save-dev compression-webpack-plugin
-    productionGzip: false,
-    productionGzipExtensions: ['js', 'css'],
+    productionGzip: false, //压缩
+    productionGzipExtensions: ['js', 'css'], //使用gzip压缩的扩展名
 
     // Run the build command with an extra argument to
     // View the bundle analyzer report after build finishes:
     // `npm run build --report`
     // Set to `true` or `false` to always turn it on or off
-    bundleAnalyzerReport: process.env.npm_config_report
+    bundleAnalyzerReport: process.env.npm_config_report //是否在生成完成后查看包分析
   }
 }

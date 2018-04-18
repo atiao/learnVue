@@ -28,3 +28,19 @@
 * src/App.vue:项目主组件。
 * src/main.js:入口文件，初始化vue实例并使用需要的插件。
 * router/index.js:定义路由。
+
+5. build文件夹详解
+* build.js，作用：run build的入口配置文件，用于生产环境
+<img src="proImgs/build2.png">
+
+* check-versions.js 作用：node，npm版本号
+
+* utils.js 作用：处理css-loader和vue-style-loader
+
+* webpack.base.conf.js 作用：cssloadeer构建配置
+
+6.package.json
+package.json中最重要的属性是name和version两个属性，这两个属性是必须要有的，否则模块就无法被安装，这两个属性一起形成了一个npm模块的唯一标识符。
+
+7.config详解
+<img src="proImgs/config2.png">

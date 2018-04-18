@@ -4,15 +4,17 @@
   "description": "A Vue.js project",
   "author": "xinliqun <xinliqun@58ganji.com>",
   "private": true,
-  "scripts": {
+  "scripts": { //值是一个对象，里面指定了项目的生命周期各个环节需要执行的命令
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "npm run dev",
     "build": "node build/build.js"
   },
-  "dependencies": {
+  //配置模块依赖的模块列表，key是模块名称，value是版本范围，版本范围是一个字符，可被一个或多个空格分割。
+  "dependencies": { 
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
+  //这里写的依赖是用于开发环境的，不发布到生产环境。
   "devDependencies": {
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
@@ -50,13 +52,15 @@
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.0"
   },
+  //指定项目运行的node或者npm版本范围，有点像安卓的指定开发level哦
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
+  //在不同的前端工具之间共享目标浏览器的库，确定哪些支持哪些版本的浏览器
   "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
+    "> 1%", //全球有超1%的人使用的浏览器
+    "last 2 versions", //根据CanIUse.com追踪的最后两个版本的所有浏览器
+    "not ie <= 8" //排除先前查询选择的浏览器
   ]
 }
