@@ -42,5 +42,14 @@
 6.package.json
 package.json中最重要的属性是name和version两个属性，这两个属性是必须要有的，否则模块就无法被安装，这两个属性一起形成了一个npm模块的唯一标识符。
 
-7.config详解
+7.config文件详解
 <img src="proImgs/config2.png">
+
+condig文件夹中的其他几个文件，这几个文件主要是暴露接口（其他文件会引用这些暴露出来的变量等）
+
+8..babelrc文件：由于浏览器的兼容问题，很多js新方法都不能用，babel因此而生。它可以将这些新方法编译成兼容的代码，尽量多的适应主流浏览器。
+
+9..editorconfig文件配置：用来规范开发中缩进风格的统一
+<img src="proImgs/editor.png">
+
+10..postcssrc.js文件：postCss提供一个解析器，将css解析成抽象语法树。
